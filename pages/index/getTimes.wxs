@@ -1,0 +1,30 @@
+var times = function(time){
+  var doneTimes = function (doneT){
+    var nowT = getDate().getTime() // 获取当前时间
+    var xT = parseInt(nowT - doneT) / 1000;
+    var tip = '';
+    if (xT < 0 || Math.floor(xT / 60) <= 0){
+      tip = '刚刚';                 // 小于1分钟    
+    }else if(xT<3600){
+      tip = Math.floor(xT / 60) + '分钟前'; // 获取分钟
+    }else if(xT<86400){
+      tip = Math.floor(xT / 3600) + '小时前'; // 获取小时
+    }else{
+      tip = dateInfo(doneT);  // 获取日期
+      console.log('日期') 
+    }
+    return tip;
+  }
+  var dateInfo = function(date){ // 转换成具体年月日 如 1988-8-8
+    var date = getDate(date);
+    var y = date.getFullYear() + '-';
+    var m = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1)) + '-';
+    var d = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+    return y + m + d;
+  }
+  return doneTimes(+time);
+}
+
+module.exports = {
+  times: times
+}

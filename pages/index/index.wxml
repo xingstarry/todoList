@@ -1,0 +1,35 @@
+<!--index.wxml-->
+<wxs src="./getTimes.wxs" module="getTimes" /> 
+<view class="container">
+  <view class="mask {{addBox?'':'hide'}}">
+    <view class='add_box'>
+      <input class='add_input' type='text' placeholder='请输入……' bindinput='setInput' value='{{addText}}' focus='{{focus}}'></input>
+      <view class='add_btns'>
+        <button class='add_confirm' bindtap='addItem'>确认添加</button>
+        <button class='add_cancle' bindtap='closeAddShow'>取消</button>
+      </view>
+    </view>
+  </view>
+  <view class='select_box'>
+    <view class='select_status'>
+      <view class="status {{status === '1'? 'active':''}}" data-status='1' bindtap='showStatus'>全部</view>
+      <view class="status {{status === '2'? 'active':''}}" data-status='2' bindtap='showStatus'>未完成</view>
+      <view class="status {{status === '3'? 'active':''}}" data-status='3' bindtap='showStatus'>已完成</view>
+    </view>
+    <button class='select_addBtn' bindtap='onAddShow'>+添加</button>
+  </view>
+  <scroll-view class='list_box' scroll-y='true'>
+    <block wx:if='{{curLists.length<1}}'>
+      <view class='list_nodata'>暂无数据……</view>
+    </block>
+    <view class='list_item' wx:for='{{curLists}}' wx:key='index'>
+      <view class='list_content' style='{{item.txtLeft}}' data-index='{{index}}' bindtouchstart='touchS' bindtouchmove='touchM' bindtouchend='touchE'>
+        <!-- icon 勾选为已完成，未勾选为未完成 -->
+        <icon class='list_icon' type="{{item.status === '0'?'circle':'success'}}" size='20' data-item='{{item.id}}' bindtap='changeTodo'></icon>
+        <text class='list_info'>{{item.title}}</text>
+        <text class='list_time'>{{getTimes.times(item.id)}}</text> 
+      </view>
+      <view class='list_delete' data-item='{{item.id}}' bindtap='delTodo'><text>删除</text></view>
+    </view>
+  </scroll-view>
+</view>

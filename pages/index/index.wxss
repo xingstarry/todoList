@@ -1,0 +1,118 @@
+/**index.wxss**/
+
+.mask{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.8);
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 30;
+}
+.add_box{
+  height: 240rpx;
+  background-color: #fff;
+  padding: 20rpx 40rpx;
+}
+.add_input{
+  border:1px solid #ccc;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-radius: 6rpx;
+  padding: 0 20rpx;
+  margin-bottom: 30rpx;
+}
+.add_btns button{
+  display: inline-block;
+}
+.add_confirm{
+  background-color: #f54141;
+  color:#fff;
+}
+.add_cancle{
+  margin-left: 20rpx;
+}
+
+.select_box{
+  width: 100%;
+  position: relative;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ccc;
+}
+.select_status{
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+}
+.select_status .status{
+  padding: 20rpx;
+}
+.select_status .active{
+  border-bottom: 3px solid red;
+}
+.select_addBtn{
+  position: absolute;
+  right:20rpx;
+  top:20rpx;
+  background-color: #f54141;
+  color:#fff;
+}
+
+
+.list_box{
+  height: 88%;
+}
+.list_nodata{
+  text-align: center;
+  padding: 40rpx 0;
+}
+.list_item{
+  position: relative;
+  overflow: hidden
+}
+.list_content{
+  padding: 0 20rpx;
+  line-height: 120rpx;
+  position: relative;
+  left:0;
+  top:0;
+  overflow-wrap: normal;
+  background: #fff;
+  transition: left .3s;
+  z-index: 10;
+}
+.list_content .list_icon{
+  line-height: 120rpx;
+}
+.list_content text{
+  display: inline-block;
+}
+.list_content .list_info{
+  margin-left: 20rpx;
+  line-height: 120rpx;
+  font-size: 36rpx;
+}
+.list_content .list_time{
+  color:#ccc;
+  font-size: 32rpx;
+  position: absolute;
+  top:0;
+  right:20rpx;
+  line-height: 120rpx;
+}
+.list_item .list_delete{
+  position: absolute;
+  top:0;
+  right:0;
+  font-size: 28rpx;
+  color:#fff;
+  line-height: 120rpx;
+  background-color: #f54141;
+  width:120rpx;
+  text-align: center;
+  z-index: 9;
+} 
+.hide{
+  display: none;
+}
